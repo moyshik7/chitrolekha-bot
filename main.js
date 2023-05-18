@@ -4,10 +4,12 @@ import {
 } from 'discord.js';
 import express from "express"
 import dotenv from "dotenv"
+import { MessageHandler } from './message/message.js';
 
 
-const PORT = process.env.PORT || 3000;
 dotenv.config()
+const PORT = process.env.PORT || 3000;
+const PREFIX = process.env.PREFIX || "-"
 
 const server = express()
 
@@ -34,7 +36,24 @@ client.on("messageCreate", async message => {
     if(message.author.bot){ return }
     if(!message.content){ return }
 
-    if(message.content.toLowerCase().includes("kopot")){
+    if(message.content.startsWith(PREFIX)){
+        let args = message.content.substring(PREFIX.length).toLowerCase().split(" ");
+        if(!args.length){ return }
+        let commandName = args.shift();
+        if(!commandName){ return }
+
+        let commandHandler = new MessageHandler(message, args, client);
+
+        let command = commandHandler[commandName];
+        if(command){
+            command = command.bind(commandHandler);
+            try {
+                command();
+            } catch (err){ console.log(err) }
+        }
+    }
+
+    /*if(message.content.toLowerCase().includes("kopot")){
         let count = 0;
         let interval = setInterval(() => {
             if(count >= 10){
@@ -45,7 +64,7 @@ client.on("messageCreate", async message => {
                 content: "<@851753629149167657> er mayresudi"
             }).catch(console.log)
         }, 1000)
-    }
+    }*/
 })
 
 client.login(process.env.BOT_TOKEN || "");

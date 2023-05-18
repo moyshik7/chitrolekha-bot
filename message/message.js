@@ -1,13 +1,15 @@
 import { Client, Message } from "discord.js";
 
-class MessageHandler {
+export class MessageHandler {
     /**
-     * 
+     * Handle message commands
      * @param {Message} message 
+     * @param {Array<string>} args
      * @param {Client} client 
      */
-    constructor(message, client){
+    constructor(message, args, client){
         this.message = message;
+        this.args = args;
         this.client = client
     }
     ping(){
