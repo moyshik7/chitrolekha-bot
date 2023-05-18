@@ -13,6 +13,10 @@ export class MessageHandler {
         this.client = client
     }
     ping(){
-        this.message.reply(`Pong ${this.client.ws.ping}ms`).catch(console.log)
+        this.message.reply(`🏓Latency is ${
+            Date.now() - this.message.createdTimestamp
+        }ms. API Latency is ${
+            Math.round(this.client.ws.ping)
+        }ms`).catch(console.log)
     }
 }
