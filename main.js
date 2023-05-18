@@ -24,10 +24,44 @@ client.on('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
-    if(!interaction.isButton) return;
-
-    if (interaction.commandName === 'ping') {
-        await interaction.reply('Pong!');
+    /**
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * Ghumaite gelam kalke korbo
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
+    if(interaction.isChatInputCommand()){
+        //Commands Handler
+        return;
+    }
+    if(interaction.isButton()){
+        //Button Handler
+        return;
+    }
+    if(interaction.isAnySelectMenu()){
+        //Dropdown Handler
+        return;
     }
 });
 
