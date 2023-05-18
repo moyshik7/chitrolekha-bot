@@ -9,7 +9,7 @@ import { MessageHandler } from './message/message.js';
 
 dotenv.config()
 const PORT = process.env.PORT || 3000;
-const PREFIX = process.env.PREFIX || "-"
+const PREFIX = process.env.PREFIX || "-";
 
 const server = express()
 
@@ -53,19 +53,6 @@ client.on("messageCreate", async message => {
             } catch (err){ console.log(err) }
         }
     }
-
-    /*if(message.content.toLowerCase().includes("kopot")){
-        let count = 0;
-        let interval = setInterval(() => {
-            if(count >= 10){
-                clearInterval(interval)
-            }
-            count += 1;
-            message.reply({
-                content: "<@851753629149167657> er mayresudi"
-            }).catch(console.log)
-        }, 1000)
-    }*/
 })
 
 client.login(process.env.BOT_TOKEN || "");
