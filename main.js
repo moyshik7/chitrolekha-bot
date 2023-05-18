@@ -3,9 +3,11 @@ import {
     GatewayIntentBits
 } from 'discord.js';
 import express from "express"
+import dotenv from "dotenv"
 
 
 const PORT = process.env.PORT || 3000;
+dotenv.config()
 
 const server = express()
 
@@ -16,16 +18,35 @@ const client = new Client({ intents: [
 ] });
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('interactionCreate', async interaction => {
-  if (!interaction.isButton) return; //emne   --Shera!!
+    if(!interaction.isButton) return;
 
-  if (interaction.commandName === 'ping') {
-    await interaction.reply('Pong!');
-  }
+    if (interaction.commandName === 'ping') {
+        await interaction.reply('Pong!');
+    }
 });
+
+
+client.on("messageCreate", async message => {
+    if(message.author.bot){ return }
+    if(!message.content){ return }
+
+    if(message.content.toLowerCase().includes("kopot")){
+        let count = 0;
+        let interval = setInterval(() => {
+            if(count >= 10){
+                clearInterval(interval)
+            }
+            count += 1;
+            message.reply({
+                content: "<@851753629149167657> er mayresudi"
+            }).catch(console.log)
+        }, 1000)
+    }
+})
 
 client.login(process.env.BOT_TOKEN || "");
 
