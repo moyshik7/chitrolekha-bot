@@ -24,5 +24,4 @@ export const AddRoleOnClick = (interaction: ButtonInteraction, args: Array<strin
             }).catch(console.log)
         }).catch(console.log)
     }).catch(console.log)
-    
 }
