@@ -6,6 +6,7 @@ import express from "express"
 import dotenv from "dotenv"
 import { MessageHandler } from './message/message.js';
 import { CommandInteractionHandler } from './commands/interaction.js';
+import { ButtonInteractionHandler } from './buttons/buttons.js';
 
 
 dotenv.config()
@@ -33,13 +34,28 @@ client.on('interactionCreate', async interaction => {
             command = command.bind(commandHandler)
             try {
                 command();
-                return;
             }catch(err){ console.log(err) }
         }
         return;
     }
     if(interaction.isButton()){
         //Button Handler
+
+        let args = interaction.customId.toLowerCase().split("_");
+        if(!args.length){ return }
+
+        const actionName = args.shift();
+
+        const buttonHandler = new ButtonInteractionHandler(interaction, args, client)
+
+        let action = buttonHandler[actionName]
+        if(action){
+            action = action.bind(buttonHandler)
+            try {
+                action();
+                return;
+            }catch(err){ console.log(err) }
+        }
         return;
     }
     if(interaction.isAnySelectMenu()){
