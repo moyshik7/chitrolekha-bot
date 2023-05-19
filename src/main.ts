@@ -38,7 +38,7 @@ client.on('ready', () => {
 client.on('interactionCreate', async interaction => {
     if(interaction.isChatInputCommand()){
         //Commands Handler
-        const commandHandler = new CommandInteractionHandler(interaction, client)
+        const commandHandler = new CommandInteractionHandler(interaction, client, db)
         let command = commandHandler[interaction.commandName.toLowerCase()]
         if(command){
             command = command.bind(commandHandler)
@@ -56,7 +56,7 @@ client.on('interactionCreate', async interaction => {
 
         const actionName = args.shift();
 
-        const buttonHandler = new ButtonInteractionHandler(interaction, args, client)
+        const buttonHandler = new ButtonInteractionHandler(interaction, args, client, db)
 
         let action = buttonHandler[actionName]
         if(action){
@@ -86,7 +86,7 @@ client.on("messageCreate", message => {
         let commandName = args.shift();
         if(!commandName){ return }
 
-        const commandHandler = new MessageHandler(message, args, client);
+        const commandHandler = new MessageHandler(message, args, client, db);
 
         let command = commandHandler[commandName];
         if(command){
