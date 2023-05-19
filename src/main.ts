@@ -4,8 +4,8 @@ import {
 } from 'discord.js';
 import express from "express"
 import * as dotenv from "dotenv";
-import { MessageHandler } from './message/message.js';
-import { CommandInteractionHandler } from './commands/interaction.js';
+import { MessageHandler } from './message/message';
+import { CommandInteractionHandler } from './commands/interaction';
 import { ButtonInteractionHandler } from './buttons/buttons';
 
 dotenv.config({ path: __dirname+ '/.env' })

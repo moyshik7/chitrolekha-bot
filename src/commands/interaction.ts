@@ -1,11 +1,10 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Client, Colors, CommandInteraction, EmbedBuilder } from "discord.js";
 
 export class CommandInteractionHandler {
-    /**
-     * Handle message commands
-     * @param {CommandInteraction} interaction
-     * @param {Client} client 
-     */
+
+    interaction: CommandInteraction;
+    client: Client;
+
     constructor(interaction, client){
         this.interaction = interaction;
         this.client = client;
@@ -36,7 +35,7 @@ export class CommandInteractionHandler {
                     .setLabel(`Journalism Team`)
                     .setStyle(ButtonStyle.Success)
                 
-            );
+            ) as ActionRowBuilder<ButtonBuilder>;
 
         const embed = new EmbedBuilder()
             .setTitle("Pick your Team")
