@@ -1,7 +1,7 @@
 compile = "./.config/build.sh"
 run = "npm start"
 entrypoint = "./build/main.js"
-hidden = [".build"]
+hidden = []
 
 [packager]
 language = "nodejs"
