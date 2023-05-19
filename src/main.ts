@@ -8,7 +8,7 @@ import { MessageHandler } from './message/message';
 import { CommandInteractionHandler } from './commands/interaction';
 import { ButtonInteractionHandler } from './buttons/buttons';
 
-dotenv.config({ path: __dirname+ '/.env' })
+dotenv.config({ path: __dirname+ '/../.env' })
 
 const PORT = process.env.PORT || 3000;
 const PREFIX = process.env.PREFIX || "-";

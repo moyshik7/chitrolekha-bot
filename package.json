@@ -8,7 +8,7 @@
     "name": "chitrolekha",
     "version": "0.1.1",
     "main": "./build/main.js",
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
