@@ -42,4 +42,11 @@ export class ButtonInteractionHandler{
             }).catch(console.log)
         }).catch(console.log)
     }
+    approve(){}
+    denyrequest(){
+        this.interaction.deferUpdate().catch(console.log)
+        this.interaction.message.delete().catch(console.log)
+
+        //Maybe it will send "your request was denied" in DM
+    }
 }
