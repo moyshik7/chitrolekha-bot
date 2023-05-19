@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../src/buttons/func/rolelist.ts"],
-  "sourcesContent": ["import { Snowflake } from \"discord.js\";\n\nconst RoleList = new Map() as Map<string, Snowflake>\n\nRoleList.set(\"it\", \"1104038767540572290\");\nRoleList.set(\"art\", \"1104053490269036575\");\nRoleList.set(\"cultural\", \"1104040905683509380\");\nRoleList.set(\"srijoni\", \"1104053186127462420\");\nRoleList.set(\"journalism\", \"1104053380101439540\");\n\nexport { RoleList };"],
-  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,MAAM,WAAW,oBAAI,IAAI;AAEzB,SAAS,IAAI,MAAM,qBAAqB;AACxC,SAAS,IAAI,OAAO,qBAAqB;AACzC,SAAS,IAAI,YAAY,qBAAqB;AAC9C,SAAS,IAAI,WAAW,qBAAqB;AAC7C,SAAS,IAAI,cAAc,qBAAqB;",
-  "names": []
-}
