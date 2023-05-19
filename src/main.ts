@@ -28,11 +28,29 @@ const db = getFirestore();
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers
 ] });
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    
+    /*client.guilds.cache.get("1102917645579321415").members.fetch().then(async (members) => {
+        console.log("fetched members")
+        for (let [key, value] of members) {
+            let user: DatabaseBasicUserType = {
+                id: value.user.id,
+                roles: [],
+                username: value.user.username
+            };
+
+            if(!value.user.bot){
+                await db.collection('users').doc(user.id).set(user)
+                console.log(`Saved for ${user.username}`)
+            }
+        }
+    }).catch(console.log)*/
+    
 });
 
 client.on('interactionCreate', async interaction => {
