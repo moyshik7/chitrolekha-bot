@@ -1,8 +1,9 @@
 import { Client, GatewayIntentBits } from 'discord.js';
 import express from "express"
 import * as dotenv from "dotenv";
-import { initializeApp, applicationDefault, cert } from "firebase-admin/app"
-import { getFirestore, Timestamp, FieldValue } from "firebase-admin/firestore"
+import { initializeApp, cert } from "firebase-admin/app"
+import { getFirestore } from "firebase-admin/firestore"
+import { ServiceAccount } from 'firebase-admin';
 import { MessageHandler } from './message/message';
 import { CommandInteractionHandler } from './commands/interaction';
 import { ButtonInteractionHandler } from './buttons/buttons';
@@ -13,6 +14,16 @@ const PORT = process.env.PORT || 3000;
 const PREFIX = process.env.PREFIX || "-";
 
 const server = express()
+
+let firebaseConfig: ServiceAccount = {};
+firebaseConfig.projectId = process.env.FIREBASE_PROJECT_ID;
+firebaseConfig.clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+firebaseConfig.privateKey = process.env.FIREBASE_PRIVAE_KEY;
+
+initializeApp({
+    credential: cert(firebaseConfig)
+});
+const db = getFirestore();
 
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
