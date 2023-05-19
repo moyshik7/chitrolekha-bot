@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/message/message.ts"],
+  "sourcesContent": ["import { Client, Message } from \"discord.js\";\n\nexport class MessageHandler {\n    \n    message: Message;\n    args: Array<string>;\n    client: Client;\n\n    constructor(message, args, client){\n        this.message = message;\n        this.args = args;\n        this.client = client\n    }\n    ping(){\n        this.message.reply(`\uD83C\uDFD3Latency is ${\n            Date.now() - this.message.createdTimestamp\n        }ms. API Latency is ${\n            Math.round(this.client.ws.ping)\n        }ms`).catch(console.log)\n    }\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEO,MAAM,eAAe;AAAA,EAMxB,YAAY,SAAS,MAAM,QAAO;AAC9B,SAAK,UAAU;AACf,SAAK,OAAO;AACZ,SAAK,SAAS;AAAA,EAClB;AAAA,EACA,OAAM;AACF,SAAK,QAAQ,MAAM,uBACf,KAAK,IAAI,IAAI,KAAK,QAAQ,sCAE1B,KAAK,MAAM,KAAK,OAAO,GAAG,IAAI,KAC9B,EAAE,MAAM,QAAQ,GAAG;AAAA,EAC3B;AACJ;",
+  "names": []
+}
