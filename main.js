@@ -5,6 +5,7 @@ import {
 import express from "express"
 import dotenv from "dotenv"
 import { MessageHandler } from './message/message.js';
+import { CommandInteractionHandler } from './commands/interaction.js';
 
 
 dotenv.config()
@@ -24,35 +25,17 @@ client.on('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
-    /**
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * Ghumaite gelam kalke korbo
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     */
     if(interaction.isChatInputCommand()){
         //Commands Handler
+        const commandHandler = new CommandInteractionHandler(interaction, client)
+        let command = commandHandler[interaction.commandName.toLowerCase()]
+        if(command){
+            command = command.bind(commandHandler)
+            try {
+                command();
+                return;
+            }catch(err){ console.log(err) }
+        }
         return;
     }
     if(interaction.isButton()){
@@ -77,13 +60,14 @@ client.on("messageCreate", async message => {
         let commandName = args.shift();
         if(!commandName){ return }
 
-        let commandHandler = new MessageHandler(message, args, client);
+        const commandHandler = new MessageHandler(message, args, client);
 
         let command = commandHandler[commandName];
         if(command){
             command = command.bind(commandHandler);
             try {
                 command();
+                return;
             } catch (err){ console.log(err) }
         }
     }
