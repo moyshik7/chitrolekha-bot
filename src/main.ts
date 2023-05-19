@@ -1,6 +1,8 @@
 import { Client, GatewayIntentBits } from 'discord.js';
 import express from "express"
 import * as dotenv from "dotenv";
+import { initializeApp, applicationDefault, cert } from "firebase-admin/app"
+import { getFirestore, Timestamp, FieldValue } from "firebase-admin/firestore"
 import { MessageHandler } from './message/message';
 import { CommandInteractionHandler } from './commands/interaction';
 import { ButtonInteractionHandler } from './buttons/buttons';
