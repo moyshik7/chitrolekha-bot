@@ -2,12 +2,10 @@ import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, Client
 
 
 export class ButtonInteractionHandler{
-    /**
-     * Handles Button interactions
-     * @param {ButtonInteraction} interaction 
-     * @param {Array<String>} args
-     * @param {Client} client 
-     */
+    interaction: ButtonInteraction;
+    args: Array<string>;
+    client: Client;
+
     constructor(interaction, args, client){
         this.interaction = interaction;
         this.args = args;
@@ -34,7 +32,7 @@ export class ButtonInteractionHandler{
                         .setCustomId(`denyrequest_${this.args[0]}_${this.args[1]}`)
                         .setStyle(ButtonStyle.Danger)
                         .setLabel("Deny")
-                    );
+                    ) as ActionRowBuilder<ButtonBuilder>;
                 channel.send({
                     embeds: [embed],
                     components: [row]
