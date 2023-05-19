@@ -6,11 +6,13 @@ export class ButtonInteractionHandler{
     interaction: ButtonInteraction;
     args: Array<string>;
     client: Client;
+    db: any; //Google madarchod kono type deynai ogor mayresudi
 
-    constructor(interaction, args, client){
+    constructor(interaction: ButtonInteraction, args: Array<string>, client: Client, db?: any){
         this.interaction = interaction;
         this.args = args;
         this.client = client;
+        this.db = db;
     }
     addrole(){
         this.interaction.deferUpdate().catch(console.log)

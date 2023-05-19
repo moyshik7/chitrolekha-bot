@@ -4,10 +4,12 @@ export class CommandInteractionHandler {
 
     interaction: CommandInteraction;
     client: Client;
+    db: any; //Google madarchod kono type deynai ogor mayresudi
 
-    constructor(interaction, client){
+    constructor(interaction: CommandInteraction, client: Client, db?: any){
         this.interaction = interaction;
         this.client = client;
+        this.db = db;
     }
     ping(){
         if(this.interaction.user.id != "584309117380853770"){ return }
