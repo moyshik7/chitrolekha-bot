@@ -1,7 +1,4 @@
-import {
-    Client,
-    GatewayIntentBits
-} from 'discord.js';
+import { Client, GatewayIntentBits } from 'discord.js';
 import express from "express"
 import * as dotenv from "dotenv";
 import { MessageHandler } from './message/message';
