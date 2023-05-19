@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "rootDir": "./src",
+        "outDir": "./build",
+        "allowJs": true,
+        "checkJs": true,
+        "declaration": true,
+        "removeComments": true,
+        "newLine": "lf",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "strictFunctionTypes": true,
+        "noUnusedLocals": false,
+        "noImplicitReturns": false,
+        "skipLibCheck": true
+    }
+}
