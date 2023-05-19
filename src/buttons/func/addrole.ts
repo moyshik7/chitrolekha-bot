@@ -17,7 +17,7 @@ export const AddRoleOnClick = (interaction: ButtonInteraction, args: Array<strin
                     //Done adding role
                     //Maybe send notification in DM
                     interaction.message.delete().then(() => {
-                        interaction.channel.send(`Added Role **${args[0].toUpperCase()}** to **${member.user.username}#${member.user.discriminator}**`)
+                        interaction.channel.send(`Added Role **${args[0].toUpperCase()}** to **${member.user.username}#${member.user.discriminator}**\nApproved by: <@${interaction.user.id}>`)
                         .catch(console.log)
                     }).catch(console.log)
                 }).catch(console.log)
