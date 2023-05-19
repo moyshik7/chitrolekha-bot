@@ -1,4 +1,5 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, Client, Colors, EmbedBuilder } from "discord.js";
+import { AddRoleOnClick } from "./func/addrole";
 
 
 export class ButtonInteractionHandler{
@@ -40,7 +41,9 @@ export class ButtonInteractionHandler{
             }).catch(console.log)
         }).catch(console.log)
     }
-    approve(){}
+    approve(){
+        AddRoleOnClick(this.interaction, this.args)
+    }
     denyrequest(){
         this.interaction.deferUpdate().catch(console.log)
         this.interaction.message.delete().catch(console.log)

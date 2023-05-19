@@ -1,7 +1,7 @@
-import { ButtonInteraction, Client, Snowflake } from "discord.js";
+import { ButtonInteraction } from "discord.js";
 import { RoleList } from "./rolelist";
 
-export const AddRoleOnClick = (interaction: ButtonInteraction, args: Array<string>, client: Client) => {
+export const AddRoleOnClick = (interaction: ButtonInteraction, args: Array<string>) => {
     if(args.length < 2){ return }
 
     interaction.deferUpdate().then(() => {
@@ -16,12 +16,13 @@ export const AddRoleOnClick = (interaction: ButtonInteraction, args: Array<strin
                 member.roles.add(role).then(() => {
                     //Done adding role
                     //Maybe send notification in DM
-                    interaction.channel.send(`Added Role **${args[0].toUpperCase()}** to **${member.user.username}#${member.user.discriminator}**`)
+                    interaction.message.delete().then(() => {
+                        interaction.channel.send(`Added Role **${args[0].toUpperCase()}** to **${member.user.username}#${member.user.discriminator}**`)
                         .catch(console.log)
+                    }).catch(console.log)
                 }).catch(console.log)
             }).catch(console.log)
         }).catch(console.log)
     }).catch(console.log)
     
 }
-//.then().catch(console.log)
