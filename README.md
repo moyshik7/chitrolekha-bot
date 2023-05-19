@@ -20,3 +20,11 @@
 [instagram.com/chitrolekha200](https://www.instagram.com/chitrolekha200/)  
 [t.me/chitrolekha200](https://t.me/chitrolekha200)  
   
+  
+
+
+
+
+
+## News:
+[Releases](https://github.com/moyshik7/chitrolekha-bot/releases)  
