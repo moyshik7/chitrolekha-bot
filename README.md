@@ -1,9 +1,9 @@
 # চিত্রলেখা - Chitrolekha
   
 
-<center>
-    <img src="https://images2.imgbox.com/c1/5c/3r0q45tc_o.jpg)"/>
-</center>
+<p align="center">
+    <img src="https://images2.imgbox.com/c1/5c/3r0q45tc_o.jpg">
+</p
 
 
 আমরা ইতিবাচক পরিবর্তনে বিশ্বাসী। সে বিশ্বাস থেকেই মে-২০১৮ থেকে বর্তমান প্রজন্মের কিশোর বয়সীদের শিল্প-সাহিত্য ও সংস্কৃতির প্রতি অনুরাগী করে তুলতেই এই ক্ষুদ্র প্রয়াস।  
