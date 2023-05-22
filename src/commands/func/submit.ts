@@ -4,6 +4,7 @@ import { Client, CommandInteraction, EmbedBuilder} from "discord.js";
 
 export const SubmitCommand = (interaction: CommandInteraction, client: Client) => {
     try {
+        interaction.reply("received submission")
         const text = interaction.options?.get("text")?.value
         const title = interaction.options?.get("title")?.value || "N/A"
 
