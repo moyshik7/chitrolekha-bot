@@ -4,8 +4,8 @@ import { Client, CommandInteraction, EmbedBuilder} from "discord.js";
 
 export const SubmitCommand = (interaction: CommandInteraction, client: Client) => {
     try {
-        const text = interaction.options.get("text").value
-        const title = interaction.options.get("title").value || "N/A"
+        const text = interaction.options?.get("text")?.value
+        const title = interaction.options?.get("title")?.value || "N/A"
 
         client.channels.fetch("1110184084015169680").then(channel => {
             if(channel.isTextBased()){
