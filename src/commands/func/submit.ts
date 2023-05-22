@@ -31,3 +31,22 @@ export const SubmitCommand = (interaction: CommandInteraction, client: Client) =
         }).catch(console.log)
     } catch(err){ console.log(err) }
 }
+
+/*
+{
+    "name": "submit",
+    "description": "Submit content through this command",
+    "type": 1,
+    "options": [{
+        "name": "text",
+        "description": "The content you want to submit",
+        "type": 3,
+        "required": true
+    }, {
+        "name": "title",
+        "description": "Title for the content",
+        "type": 3,
+        "required": false
+    }]
+}
+*/
