@@ -18,7 +18,7 @@ const server = express()
 let firebaseConfig: ServiceAccount = {};
 firebaseConfig.projectId = process.env.FIREBASE_PROJECT_ID;
 firebaseConfig.clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-firebaseConfig.privateKey = process.env.FIREBASE_PRIVAE_KEY;
+firebaseConfig.privateKey = JSON.parse(process.env.FIREBASE_PRIVAE_KEY);
 
 initializeApp({
     credential: cert(firebaseConfig)
