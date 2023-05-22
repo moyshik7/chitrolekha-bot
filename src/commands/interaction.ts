@@ -1,5 +1,6 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Client, Colors, CommandInteraction, EmbedBuilder } from "discord.js";
 import { PingCommand } from "./func/ping";
+import { SubmitCommand } from "./func/submit";
 
 export class CommandInteractionHandler {
 
@@ -14,6 +15,9 @@ export class CommandInteractionHandler {
     }
     ping(){
         PingCommand(this.interaction)
+    }
+    submit(){
+        SubmitCommand(this.interaction, this.client)
     }
     about(){
         const embed = new EmbedBuilder()
